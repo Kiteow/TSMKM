@@ -1,0 +1,49 @@
+
+<ion-content>
+
+<div>  
+  <ion-item color="medium">
+  <ion-label> Manage Rest Time</ion-label>
+  <ion-datetime displayFormat="mm:ss" placeholder="Tap here" [(ngModel)]="fullTime"></ion-datetime>
+</ion-item>
+</div>
+
+<div class="scaled" style="height: 60%;">
+  <circle-progress (click)="startTiming()"
+  [percent]="percent"
+  [maxPercent]="100"
+  [radius]="radius"
+  [showTitle]="false"  
+  [showSubtitle]="true"
+  [subtitle]="remainingTime"
+  [subtitleFontSize]="40"
+  [showUnits]="false"
+  [outerStrokeWidth]="12"
+  [outerStrokeColor]="'#000000'"
+  [showZeroOuterStroke]="false"
+  [backgroundStroke]="'#ffffff'"
+  [backgroundStrokeWidth]="3"
+  [outerStrokeGradient]="true"
+  [outerStrokeGradientStopColor]="'#ffffff'"
+  [showInnerStroke]="false"
+></circle-progress>
+</div>
+
+<div>
+  <p>{{ workinTime.h }}:{{ workinTime.m }}:{{ workinTime.s }}</p>
+</div>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ng-container *ngIf="timer == false; else running">
+    <ion-fab-button (click)="startTiming()">
+        <ion-icon name="play"></ion-icon>
+      </ion-fab-button>
+  </ng-container> 
+  <ng-template #running>
+      <ion-fab-button (click)="stopTiming()">
+          <ion-icon name="square"></ion-icon>
+        </ion-fab-button>
+  </ng-template>
+</ion-fab>
+
+</ion-content>

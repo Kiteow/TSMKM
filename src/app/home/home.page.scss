@@ -1,0 +1,25 @@
+
+p {
+    font-size: 3em;
+    color:white;
+    width: 100%;
+    text-align: center;
+}
+
+
+ion-input {
+    color: white;
+}
+
+ion-toolbar {
+    background: black;
+}
+
+.top {
+    margin: 30px;
+}
+
+.scaled {
+    transform: scale(0.7); /* Equal to scaleX(0.7) scaleY(0.7) */
+
+  }
